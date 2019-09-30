@@ -117,4 +117,4 @@ for filename in os.listdir('./cogs'):
 
 print('Cogs loaded')
 
-bot.run('NjI3MTAxNjQwNDQ0MzQ2Mzcw.XY3wPw.rsWgShDD0aR6bZT4FU2gfq7Yvz4')
+bot.run('TOKEN')
