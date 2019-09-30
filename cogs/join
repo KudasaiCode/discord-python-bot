@@ -1,0 +1,45 @@
+'''
+import discord
+from discord.ext import commands
+import asyncio
+import nacl
+
+OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
+def load_opus_lib(opus_libs=OPUS_LIBS):
+    if opus.is_loaded():
+        return True
+    for opus_lib in opus_libs:
+        try:
+            opus.load_opus(opus_lib)
+            return
+        except OSError:
+            pass
+        raise RuntimeError('No Opus lib.')
+
+class Voice(commands.Cog):
+    def __init__(self, client):
+        self.client = client
+
+    @commands.command()
+    async def join(self, ctx):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+
+    @commands.command()
+    async def leave(self, ctx):
+        server = ctx.message.guild.voice_client
+        await server.disconnect()
+
+    @commands.command()
+    async def clap(self, ctx):
+        guild = ctx.guild
+        voice_client: discord.VoiceClient = discord.utils.get(bot.voice_clients, guild=guild)
+        audio_source = discord.FFmpegPCMAudio('clap.mp3')
+        if not voice_client.is_playing():
+            voice_clien.play(audio_source, after=None)
+
+
+
+def setup(client):
+    client.add_cog(Voice(client))
+'''
