@@ -3,7 +3,6 @@ Discord bot written in discord.py api for fun
 
 # Api's used so far:
 Wikipedia, and Discord
-(more implementation in the future)
 
 # Cogs:
 Extensions that function as seperate commands. 
